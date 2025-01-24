@@ -34,4 +34,12 @@
     color: #f39c12;
     font-weight: 600;
   }
+  #testo_footer {
+    text-align: center;
   
+  }
+  footer {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+  }
