@@ -1,0 +1,37 @@
+/* Personalizzazione della navbar */
+.custom-navbar {
+    background-color: #2c3e50;
+    /* Colore di sfondo più scuro */
+  }
+  
+  .custom-navbar .navbar-brand {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #ecf0f1;
+  }
+  
+  .custom-navbar .navbar-nav .nav-link {
+    color: #ecf0f1;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .custom-navbar .navbar-nav .nav-link:hover {
+    color: #f39c12;
+    /* Colore arancio per hover */
+  }
+  
+  .custom-navbar .navbar-toggler {
+    border-color: #ecf0f1;
+  }
+  
+  .custom-navbar .navbar-toggler-icon {
+    background-color: #ecf0f1;
+  }
+  
+  /* Personalizzazione dello stato attivo */
+  .custom-navbar .navbar-nav .nav-link.active {
+    color: #f39c12;
+    font-weight: 600;
+  }
+  
