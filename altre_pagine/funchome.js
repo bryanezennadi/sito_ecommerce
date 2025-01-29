@@ -1,0 +1,60 @@
+async function fetchLibriViviData() {
+    try {
+        // Fetch del file JSON
+        const response = await fetch('../altre_pagine/dataHome.json');
+        if (!response.ok) {
+            throw new Error('Errore nel caricamento del file JSON: ' + response.statusText);
+        }
+
+        const data = await response.json();
+
+        // Verifica della struttura dei dati JSON
+        if (!data.title || !data.titolo2 || !Array.isArray(data.navbar)) {
+            throw new Error('Il formato dei dati JSON non è corretto');
+        }
+
+        // Aggiorna il titolo principale e secondario
+        document.getElementById('titolohome').textContent = data.title;
+        document.getElementById('titolohome2').textContent = data.titolo2;
+        let i=0;
+        // Genera dinamicamente la navbar
+        const navbar = document.getElementById('navbar');
+        navbar.innerHTML = data.navbar.map(item => {
+           
+            i++
+            
+            if (!item.name || !item.link) {
+                console.warn('Elemento navbar incompleto:', item);
+                return ''; // Non renderizzare voci incomplete
+            } if(i==1){
+                
+                return `<li class="nav-item"><a class="nav-link active" href="${item.link}">${item.name}</a></li>`;
+                
+            }
+            else{
+                return `
+                <li class="nav-item">
+                    <a class="nav-link" href="${item.link}">${item.name}</a>
+                </li>`;
+            }
+           
+            
+        }).join('');
+        document.getElementById('logo').innerHTML = `<img  class= "logo" src="${data.logo}" alt="Logo">`;
+        document.getElementById('intestazione').textContent = data.intestazione;
+        document.getElementById('intestazione').classList.add('titolo');
+        document.getElementById('titolohome').classList.add('titolo');
+        document.getElementById('titolohome2').classList.add('titolo');
+
+    } catch (error) {
+        // Gestione degli errori
+        console.error('Errore:', error);
+        // Puoi anche visualizzare un messaggio di errore all'utente, se necessario
+        alert('Si è verificato un errore nel caricamento dei dati. Riprova più tardi.');
+    }
+
+
+}
+
+// Chiamata alla funzione al caricamento della pagina
+document.addEventListener('DOMContentLoaded', fetchLibriViviData);

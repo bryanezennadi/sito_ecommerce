@@ -1,0 +1,13 @@
+{
+    "title": "LibriVivi",
+    "titolo2": "I PIÙ VENDUTI",
+    "navbar": [
+        { "name": "Home", "link": "index.html" },
+        { "name": "Libri d'avventura", "link": "avventura.html" },
+        { "name": "Libri sportivi", "link": "sport.html" },
+        { "name": "Libri fantasy", "link": "fantasy.html" },
+        { "name": "Carrello", "link": "carrello.html" }
+    ],
+    "logo" : "../altre_pagine/LOGO.webp",
+    "intestazione" : "il sito di libri più utilizzato in Italia"
+}

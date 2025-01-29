@@ -1,6 +1,6 @@
 /* Personalizzazione della navbar */
 .custom-navbar {
-    background-color: #2c3e50;
+    background-color: #fc766d;
     /* Colore di sfondo più scuro */
   }
   
@@ -11,13 +11,13 @@
   }
   
   .custom-navbar .navbar-nav .nav-link {
-    color: #ecf0f1;
+    color: black;
     font-weight: 500;
     transition: color 0.3s ease;
   }
   
   .custom-navbar .navbar-nav .nav-link:hover {
-    color: #f39c12;
+    color: #00ff40;
     /* Colore arancio per hover */
   }
   
@@ -31,7 +31,7 @@
   
   /* Personalizzazione dello stato attivo */
   .custom-navbar .navbar-nav .nav-link.active {
-    color: #f39c12;
+    color: #00ff40;
     font-weight: 600;
   }
   #testo_footer {
@@ -43,3 +43,15 @@
     bottom:0;
     width: 100%;
   }
+  .logo{
+    width: 70%;
+    min-width: 50px; /* Impone una larghezza minima di 200px */
+  }
+  .titolo{
+    text-align: center;
+  }
+.crudo{
+  width: 10%;
+  
+
+}

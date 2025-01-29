@@ -1,0 +1,46 @@
+{
+    "title": "LibriVivi",
+    "title2": "LIBRI SPORTIVI",
+    "navbar": [
+        {
+            "name": "Home",
+            "link": "index.html"
+        },
+        {
+            "name": "Libri d'avventura",
+            "link": "avventura.html"
+        },
+        {
+            "name": "Libri sportivi",
+            "link": "sport.html"
+        },
+        {
+            "name": "Libri fantasy",
+            "link": "fantasy.html"
+        },
+        {
+            "name": "Carrello",
+            "link": "carrello.html"
+        }
+    ],
+    "logo": "../altre_pagine/LOGO.webp",
+    "library":[
+        {
+            "titolo": "È molto semplice",
+            "autore": "Massimiliano Allegri",
+            "prezzo": "21€",
+            "immagine": "../../altre_pagine/immaginiLibri/LibriSportivi/èmoltosemplice.jpeg"
+        },
+        {
+            "titolo" : "black mamba mentality",
+            "autore" : "Kobe Bryant",
+            "prezzo": "21€",
+        },
+        {
+            "titolo" : "can't stop me",
+            "autore" : "David Goggins",
+            "prezzo": "21€",
+        }
+
+    ]
+}
