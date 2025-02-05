@@ -32,14 +32,22 @@
             "immagine": "../../altre_pagine/immaginiLibri/LibriSportivi/èmoltosemplice.jpeg"
         },
         {
-            "titolo" : "black mamba mentality",
+            "titolo" : "The mamba mentality",
             "autore" : "Kobe Bryant",
             "prezzo": "21€",
+            "immagine": "../../altre_pagine/immaginiLibri/LibriSportivi/mambamentality.jpeg"
         },
         {
-            "titolo" : "can't stop me",
+            "titolo" : "Can't hurt me",
             "autore" : "David Goggins",
             "prezzo": "21€",
+            "immagine":"../../altre_pagine/immaginiLibri/LibriSportivi/canthurtme.jpeg"
+        },
+        {
+            "titolo" : "Can't hurt me",
+            "autore" : "David Goggins",
+            "prezzo": "21€",
+            "immagine":"../../altre_pagine/immaginiLibri/LibriSportivi/canthurtme.jpeg"
         }
 
     ]

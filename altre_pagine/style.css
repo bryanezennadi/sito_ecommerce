@@ -38,11 +38,11 @@
     text-align: center;
   
   }
-  footer {
+  /*footer {
     position: fixed;
     bottom:0;
     width: 100%;
-  }
+  }*/
   .logo{
     width: 70%;
     min-width: 50px; /* Impone una larghezza minima di 200px */
@@ -54,4 +54,14 @@
   width: 10%;
   
 
+}
+.parametriLibro{
+  display: inline;
+}
+.book{
+ display: inline-block;
+ margin: 7%;
+}
+img.parametriLibro{
+  width: 100%;
 }
