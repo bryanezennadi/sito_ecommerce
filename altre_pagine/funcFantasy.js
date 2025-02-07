@@ -1,7 +1,7 @@
 async function fetchLibriViviData() {
     try {
         // Fetch del file JSON
-        const response = await fetch('../altre_pagine/dataSport.json');
+        const response = await fetch('../altre_pagine/dataFantasy.json');
         if (!response.ok) {
             throw new Error('Errore nel caricamento del file JSON: ' + response.statusText);
         }
@@ -17,7 +17,7 @@ async function fetchLibriViviData() {
             }
             return `
                 <li class="nav-item">
-                    <a class="nav-link ${index === 2 ? 'active' : ''}" href="${item.link}">${item.name}</a>
+                    <a class="nav-link ${index === 3 ? 'active' : ''}" href="${item.link}">${item.name}</a>
                 </li>`;
         }).join('');
 
@@ -26,7 +26,7 @@ async function fetchLibriViviData() {
         const titoloSport = document.getElementById('titolosport');
         titoloSport.classList.add('titolo');
         titoloSport.textContent = data.title;
-
+        
         const titoloSport2 = document.getElementById('titolosport2');
         titoloSport2.classList.add('titolo');
         titoloSport2.textContent = data.title2;
@@ -58,9 +58,9 @@ function displayBooks(library) {
     library.forEach(book => {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
+       
 
-
-        bookDiv.innerHTML = `
+       bookDiv.innerHTML = `
        
        <div class="col">
        <img src="${book.immagine}" alt="${book.titolo}" class="book-image parametriLibro"/>
@@ -74,10 +74,13 @@ function displayBooks(library) {
        <button class=parametriLibro" id="carrello"> Aggiungi al carrello </button> 
        </div> 
    `;
-
+   
 
         rowDiv.appendChild(bookDiv);
         i++;
+        if(i==1|| i==3|| i==4){
+            bookDiv.classList.add("rimpicciolimento2");
+        }
 
         // Dopo 3 libri, resettiamo e creiamo una nuova riga
         if (i === 4) {

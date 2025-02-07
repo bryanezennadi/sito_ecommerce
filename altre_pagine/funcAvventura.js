@@ -1,7 +1,7 @@
 async function fetchLibriViviData() {
     try {
         // Fetch del file JSON
-        const response = await fetch('../altre_pagine/dataSport.json');
+        const response = await fetch('../altre_pagine/dataAvventura.json');
         if (!response.ok) {
             throw new Error('Errore nel caricamento del file JSON: ' + response.statusText);
         }
@@ -17,7 +17,7 @@ async function fetchLibriViviData() {
             }
             return `
                 <li class="nav-item">
-                    <a class="nav-link ${index === 2 ? 'active' : ''}" href="${item.link}">${item.name}</a>
+                    <a class="nav-link ${index === 1 ? 'active' : ''}" href="${item.link}">${item.name}</a>
                 </li>`;
         }).join('');
 
@@ -41,6 +41,7 @@ async function fetchLibriViviData() {
 }
 
 // Funzione per mostrare i libri
+// Funzione per mostrare i libri
 function displayBooks(library) {
     const container = document.getElementById("book-container");
     if (!container) {
@@ -59,25 +60,25 @@ function displayBooks(library) {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
 
-
         bookDiv.innerHTML = `
-       
-       <div class="col">
-       <img src="${book.immagine}" alt="${book.titolo}" class="book-image parametriLibro"/>
-       <br>
-       <h3 class="parametriLibro">${book.titolo}</h3>
-       <br>
-       <p class="parametriLibro"><strong>Autore:</strong> ${book.autore}</p>
-       <br>
-       <p class="parametriLibro"><strong>Prezzo:</strong> ${book.prezzo}</p>
-       <br>
-       <button class=parametriLibro" id="carrello"> Aggiungi al carrello </button> 
-       </div> 
-   `;
-
+            <div class="col">
+                <img src="${book.immagine}" alt="${book.titolo}" class="book-image parametriLibro"/>
+                <br>
+                <h3 class="parametriLibro">${book.titolo}</h3>
+                <br>
+                <p class="parametriLibro"><strong>Autore:</strong> ${book.autore}</p>
+                <br>
+                <p class="parametriLibro"><strong>Prezzo:</strong> ${book.prezzo}</p>
+                <br>
+                <button class="add-to-cart parametriLibro" data-id="${book.id}" data-name="${book.titolo}" data-price="${book.prezzo}" data-image="${book.immagine}">Aggiungi al carrello</button>
+            </div>
+        `;
 
         rowDiv.appendChild(bookDiv);
         i++;
+        if (i == 2) {
+            bookDiv.classList.add("rimpicciolimento");
+        }
 
         // Dopo 3 libri, resettiamo e creiamo una nuova riga
         if (i === 4) {
@@ -88,7 +89,33 @@ function displayBooks(library) {
         }
         container.appendChild(bookDiv);
     });
+
+    // Aggiungi il listener ai bottoni per aggiungere al carrello
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const book = {
+                id: this.dataset.id,
+                name: this.dataset.name,
+                price: this.dataset.price,
+                image: this.dataset.image
+            };
+
+            // Recupera il carrello esistente (o un array vuoto se non esiste)
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Aggiungi il libro al carrello
+            cart.push(book);
+
+            // Salva di nuovo il carrello nel localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Notifica l'utente
+            alert(book.name + " aggiunto al carrello!");
+        });
+    });
 }
+
 
 
 // Chiamata alla funzione al caricamento della pagina

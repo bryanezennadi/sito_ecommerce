@@ -1,6 +1,6 @@
 {
     "title": "LibriVivi",
-    "title2": "LIBRI SPORTIVI",
+    "title2": "LIBRI D'AVVENTURA",
     "navbar": [
         {
             "name": "Home",
@@ -26,28 +26,28 @@
     "logo": "../altre_pagine/LOGO.webp",
     "library":[
         {
-            "titolo": "È molto semplice",
-            "autore": "Massimiliano Allegri",
+            "titolo": "Jurassic Park",
+            "autore": "Michael Crichton",
             "prezzo": "21€",
-            "immagine": "../../altre_pagine/immaginiLibri/LibriSportivi/èmoltosemplice.jpeg"
+            "immagine": "../../altre_pagine/immaginiLibri/libriAvventura/jurassicPark.jpeg"
         },
         {
-            "titolo" : "The mamba mentality",
-            "autore" : "Kobe Bryant",
+            "titolo" : "Ventimila Leghe Sotto i Mari",
+            "autore" : "Jules Verne",
             "prezzo": "21€",
-            "immagine": "../../altre_pagine/immaginiLibri/LibriSportivi/mambamentality.jpeg"
+            "immagine": "../../altre_pagine/immaginiLibri/libriAvventura/ventimilaLeghe.jpeg"
         },
         {
-            "titolo" : "Can't hurt me",
-            "autore" : "David Goggins",
+            "titolo" : "Il codice Da Vinci",
+            "autore" : "Dan Brown",
             "prezzo": "21€",
-            "immagine":"../../altre_pagine/immaginiLibri/LibriSportivi/canthurtme.jpeg"
+            "immagine":"../../altre_pagine/immaginiLibri/libriAvventura/codiceDaVinci.jpeg"
         },
         {
-            "titolo" : "CR7 LA BIOGRAFIA",
-            "autore" : "Guillem Balague",
+            "titolo" : "Hunger Games",
+            "autore" : "Suzanne Collins",
             "prezzo": "21€",
-            "immagine":"../../altre_pagine/immaginiLibri/LibriSportivi/cr7biografia.jpeg"
+            "immagine":"../../altre_pagine/immaginiLibri/libriAvventura/HG.jpeg"
         }
 
     ]

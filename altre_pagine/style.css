@@ -61,7 +61,14 @@
 .book{
  display: inline-block;
  margin: 7%;
+ margin-top: 1%;
 }
 img.parametriLibro{
   width: 100%;
+}
+.rimpicciolimento{
+  width: 25%;
+}
+.rimpicciolimento2{
+  width: 15%;
 }
