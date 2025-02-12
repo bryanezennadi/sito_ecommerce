@@ -1,6 +1,6 @@
 {
     "title": "LibriVivi",
-    "titolo2": "I PIÙ VENDUTI",
+    "titolo2": "I PIÙ VENDUTI A PREZZO STRACCIATO!",
     "navbar": [
         { "name": "Home", "link": "index.html" },
         { "name": "Libri d'avventura", "link": "avventura.html" },

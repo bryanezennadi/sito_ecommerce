@@ -1,7 +1,7 @@
 async function fetchLibriViviData() {
     try {
         // Fetch del file JSON
-        const response = await fetch('../altre_pagine/dataSport.json');
+        const response = await fetch('../altre_pagine/dataFantasy.json');
         if (!response.ok) {
             throw new Error('Errore nel caricamento del file JSON: ' + response.statusText);
         }
@@ -17,7 +17,7 @@ async function fetchLibriViviData() {
             }
             return `
                 <li class="nav-item">
-                    <a class="nav-link ${index === 2 ? 'active' : ''}" href="${item.link}">${item.name}</a>
+                    <a class="nav-link ${index === 3 ? 'active' : ''}" href="${item.link}">${item.name}</a>
                 </li>`;
         }).join('');
 
@@ -61,7 +61,7 @@ function displayBooks(library) {
 
         bookDiv.innerHTML = `
             <div class="col">
-                 <a href="paginaDettagli.html?book=${encodeURIComponent(book.titolo)}">
+                <a href="paginaDettagli.html?book=${encodeURIComponent(book.titolo)}">
                     <img src="${book.immagine}" alt="${book.titolo}" class="book-image parametriLibro"/>
                 </a>
                 <br>
@@ -90,10 +90,11 @@ function displayBooks(library) {
         }
         container.appendChild(bookDiv);
     });
+
     // Aggiungi il listener ai bottoni per aggiungere al carrello
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const book = {
                 id: this.dataset.id,
                 name: this.dataset.name,
@@ -115,7 +116,6 @@ function displayBooks(library) {
         });
     });
 }
-
 
 // Chiamata alla funzione al caricamento della pagina
 document.addEventListener('DOMContentLoaded', fetchLibriViviData);

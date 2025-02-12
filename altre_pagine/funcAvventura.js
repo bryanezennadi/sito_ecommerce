@@ -1,7 +1,7 @@
 async function fetchLibriViviData() {
     try {
         // Fetch del file JSON
-        const response = await fetch('../altre_pagine/dataSport.json');
+        const response = await fetch('../altre_pagine/dataAvventura.json');
         if (!response.ok) {
             throw new Error('Errore nel caricamento del file JSON: ' + response.statusText);
         }
@@ -17,7 +17,7 @@ async function fetchLibriViviData() {
             }
             return `
                 <li class="nav-item">
-                    <a class="nav-link ${index === 2 ? 'active' : ''}" href="${item.link}">${item.name}</a>
+                    <a class="nav-link ${index === 1 ? 'active' : ''}" href="${item.link}">${item.name}</a>
                 </li>`;
         }).join('');
 
@@ -77,8 +77,8 @@ function displayBooks(library) {
 
         rowDiv.appendChild(bookDiv);
         i++;
-        if (i == 1 || i == 3 || i == 4) {
-            bookDiv.classList.add("rimpicciolimento2");
+        if (i == 2) {
+            bookDiv.classList.add("rimpicciolimento");
         }
 
         // Dopo 4 libri, resettiamo e creiamo una nuova riga
@@ -93,7 +93,7 @@ function displayBooks(library) {
     // Aggiungi il listener ai bottoni per aggiungere al carrello
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const book = {
                 id: this.dataset.id,
                 name: this.dataset.name,
@@ -115,6 +115,7 @@ function displayBooks(library) {
         });
     });
 }
+
 
 
 // Chiamata alla funzione al caricamento della pagina
