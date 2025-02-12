@@ -41,7 +41,6 @@ async function fetchLibriViviData() {
 }
 
 // Funzione per mostrare i libri
-// Funzione per mostrare i libri
 function displayBooks(library) {
     const container = document.getElementById("book-container");
     if (!container) {
@@ -56,13 +55,15 @@ function displayBooks(library) {
 
     let i = 0; // Contatore per i libri nella riga
 
-    library.forEach(book => {
+    library.forEach((book, index) => {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
 
         bookDiv.innerHTML = `
             <div class="col">
-                <img src="${book.immagine}" alt="${book.titolo}" class="book-image parametriLibro"/>
+                 <a href="paginaDettagli.html?book=${encodeURIComponent(book.titolo)}">
+                    <img src="${book.immagine}" alt="${book.titolo}" class="book-image parametriLibro"/>
+                </a>
                 <br>
                 <h3 class="parametriLibro">${book.titolo}</h3>
                 <br>
@@ -71,7 +72,7 @@ function displayBooks(library) {
                 <p class="parametriLibro"><strong>Prezzo:</strong> ${book.prezzo}</p>
                 <br>
                 <button class="add-to-cart parametriLibro" data-id="${book.id}" data-name="${book.titolo}" data-price="${book.prezzo}" data-image="${book.immagine}">Aggiungi al carrello</button>
-            </div>
+            </div> 
         `;
 
         rowDiv.appendChild(bookDiv);
@@ -80,7 +81,7 @@ function displayBooks(library) {
             bookDiv.classList.add("rimpicciolimento");
         }
 
-        // Dopo 3 libri, resettiamo e creiamo una nuova riga
+        // Dopo 4 libri, resettiamo e creiamo una nuova riga
         if (i === 4) {
             rowDiv = document.createElement("div");
             rowDiv.classList.add("row");
@@ -89,11 +90,10 @@ function displayBooks(library) {
         }
         container.appendChild(bookDiv);
     });
-
     // Aggiungi il listener ai bottoni per aggiungere al carrello
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const book = {
                 id: this.dataset.id,
                 name: this.dataset.name,

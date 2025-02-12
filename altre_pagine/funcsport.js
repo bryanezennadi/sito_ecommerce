@@ -55,31 +55,33 @@ function displayBooks(library) {
 
     let i = 0; // Contatore per i libri nella riga
 
-    library.forEach(book => {
+    library.forEach((book, index) => {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
 
-
         bookDiv.innerHTML = `
-       
-       <div class="col">
-       <img src="${book.immagine}" alt="${book.titolo}" class="book-image parametriLibro"/>
-       <br>
-       <h3 class="parametriLibro">${book.titolo}</h3>
-       <br>
-       <p class="parametriLibro"><strong>Autore:</strong> ${book.autore}</p>
-       <br>
-       <p class="parametriLibro"><strong>Prezzo:</strong> ${book.prezzo}</p>
-       <br>
-       <button class=parametriLibro" id="carrello"> Aggiungi al carrello </button> 
-       </div> 
-   `;
-
+            <div class="col">
+                 <a href="paginaDettagli.html?book=${encodeURIComponent(book.titolo)}">
+                    <img src="${book.immagine}" alt="${book.titolo}" class="book-image parametriLibro"/>
+                </a>
+                <br>
+                <h3 class="parametriLibro">${book.titolo}</h3>
+                <br>
+                <p class="parametriLibro"><strong>Autore:</strong> ${book.autore}</p>
+                <br>
+                <p class="parametriLibro"><strong>Prezzo:</strong> ${book.prezzo}</p>
+                <br>
+                <button class="add-to-cart parametriLibro" data-id="${book.id}" data-name="${book.titolo}" data-price="${book.prezzo}" data-image="${book.immagine}">Aggiungi al carrello</button>
+            </div> 
+        `;
 
         rowDiv.appendChild(bookDiv);
         i++;
+        if (i == 1 || i == 3 || i == 4) {
+            bookDiv.classList.add("rimpicciolimento2");
+        }
 
-        // Dopo 3 libri, resettiamo e creiamo una nuova riga
+        // Dopo 4 libri, resettiamo e creiamo una nuova riga
         if (i === 4) {
             rowDiv = document.createElement("div");
             rowDiv.classList.add("row");
@@ -87,6 +89,30 @@ function displayBooks(library) {
             i = 0; // Resetta il contatore
         }
         container.appendChild(bookDiv);
+    });
+    // Aggiungi il listener ai bottoni per aggiungere al carrello
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const book = {
+                id: this.dataset.id,
+                name: this.dataset.name,
+                price: this.dataset.price,
+                image: this.dataset.image
+            };
+
+            // Recupera il carrello esistente (o un array vuoto se non esiste)
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Aggiungi il libro al carrello
+            cart.push(book);
+
+            // Salva di nuovo il carrello nel localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Notifica l'utente
+            alert(book.name + " aggiunto al carrello!");
+        });
     });
 }
 

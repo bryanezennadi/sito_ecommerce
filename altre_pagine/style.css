@@ -45,7 +45,7 @@
   }*/
   .logo{
     width: 70%;
-    min-width: 50px; /* Impone una larghezza minima di 200px */
+    min-width: 50px; /* Impone una larghezza minima di 5px */
   }
   .titolo{
     text-align: center;
@@ -71,4 +71,21 @@ img.parametriLibro{
 }
 .rimpicciolimento2{
   width: 15%;
+}
+#logoCarrello{
+  width: 12%;
+  min-width: 50px; /* Impone una larghezza minima di 5px */
+}
+#book-details {
+  display: block;
+}
+.book-item {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+.book-image {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
 }
