@@ -49,18 +49,15 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 });
 
-// Funzione per ottenere il parametro 'title' dalla query string
+// Funzione per ottenere il parametro dalla query string
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
-  const paramValue = urlParams.get(param);
-  console.log(`Valore del parametro '${param}':`, paramValue);  // Aggiungi log per debugging
-  return paramValue;
+  return urlParams.get(param);
 }
 
 // Funzione per mostrare i dettagli del libro
-// Funzione per mostrare i dettagli del libro
 function displayBookDetails(categories) {
-  const bookTitle = getQueryParam('book');  // Ottieni il titolo dalla query string
+  const bookTitle = getQueryParam('book'); // Ottieni il titolo dalla query string
 
   const bookDetails = document.getElementById('book-details');
   if (!bookDetails) {
@@ -68,56 +65,58 @@ function displayBookDetails(categories) {
     return;
   }
 
-  // Log per il debug
-  console.log("Titolo del libro dalla query string:", bookTitle);
-  console.log("Categorie disponibili:", categories);
-
-  // Cerca il libro nella categoria specificata
+  // Cerca il libro nelle categorie
   let bookFound = null;
 
-  categories.forEach(category => {
-    if (bookFound) return; // Se il libro è già trovato, esci dalla ricerca
+  for (let category of categories) {
+    bookFound = category.library.find(book => book.titolo === bookTitle);
+    if (bookFound) break; // Se il libro è trovato, interrompi il ciclo
+  }
 
-    // Se stai cercando per 'title'
-    if (bookTitle) {
-      bookFound = category.library.find(book => book.titolo === bookTitle);
-    }
-  });
-
-  // Log per vedere se il libro è stato trovato
+  // Log per debugging
   console.log("Libro trovato:", bookFound);
 
   if (bookFound) {
-    // Log per vedere se il codice di inserimento HTML viene eseguito
-    console.log("Dettagli del libro da inserire:", bookFound);
-    
-    // Mostra i dettagli del libro
     bookDetails.innerHTML = `
       <h1>${bookFound.titolo}</h1>
-      <img src="${bookFound.immagine}" alt="${bookFound.titolo}" class="book-image">
+      <img src="${bookFound.image}" alt="${bookFound.titolo}" class="book-image">
       <p><strong>Autore:</strong> ${bookFound.autore}</p>
       <p><strong>Prezzo:</strong> ${bookFound.prezzo}</p>
       <p><strong>Descrizione:</strong> ${bookFound.descrizione || 'Nessuna descrizione disponibile.'}</p>
-      <button class="add-to-cart" data-book="${JSON.stringify(bookFound)}">🛒 Aggiungi al carrello</button>
+      <button class="add-to-cart">🛒 Aggiungi al carrello</button>
     `;
-    
+
     // Aggiungi evento per aggiungere al carrello
     const addButton = document.querySelector('.add-to-cart');
-    if (addButton) {
-      addButton.addEventListener('click', function () {
-        addToCart(bookFound);
-      });
-    }
+    addButton.addEventListener('click', function () {
+      addToCart(bookFound);
+    });
   } else {
     bookDetails.innerText = "Libro non trovato.";
   }
 }
 
-
 // Funzione per aggiungere libri al carrello e salvarli nel localStorage
 function addToCart(book) {
+  if (!book || !book.titolo) {
+    console.error("Errore: Tentativo di aggiungere un libro nullo o incompleto al carrello.");
+    return;
+  }
+
+
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  cart.push(book);
+  
+  // Verifica che il libro abbia tutte le proprietà necessarie
+  const newBook = {
+    name: book.titolo || "Sconosciuto",
+    autore: book.autore || "Autore non disponibile",
+    price: book.prezzo || "Prezzo non disponibile",
+    image: book.image || "placeholder.jpg"
+  };
+  console.log("Prima di aggiungere:", cart);
+  console.log("Libro da aggiungere:", book);
+  cart.push(newBook);
   localStorage.setItem('cart', JSON.stringify(cart));
-  alert(`"${book.titolo}" è stato aggiunto al carrello!`);
+
+  alert(`"${newBook.name}" è stato aggiunto al carrello!`);
 }

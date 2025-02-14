@@ -89,3 +89,7 @@ img.parametriLibro{
   height: auto;
   cursor: pointer;
 }
+.cart-item-image{
+  width: 10%;
+  min-width: 75px;
+}

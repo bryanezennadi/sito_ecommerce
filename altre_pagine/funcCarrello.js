@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function(){
               <div class="cart-item-details">
                   <img src="${book.image}" alt="${book.name}" class="cart-item-image"/>
                   <p><strong>Nome:</strong> ${book.name}</p>
-                  <p><strong>Prezzo:</strong> €${book.price}</p>
+                  <p><strong>Prezzo:</strong> ${book.price}</p>
               </div>
               <!-- Utilizza data-index per identificare in modo univoco l'elemento -->
               <button class="remove-from-cart" data-index="${index}">Rimuovi</button>
@@ -98,6 +98,8 @@ document.addEventListener('DOMContentLoaded', function(){
           });
       });
   }
+  console.log(localStorage.getItem('cart'));
+
 
   // Aggiorna la visualizzazione del carrello all'avvio
   updateCart();
