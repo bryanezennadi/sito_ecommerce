@@ -1,0 +1,183 @@
+/* Personalizzazione della navbar */
+.custom-navbar {
+    background-color: #fc766d;
+    /* Colore di sfondo più scuro */
+}
+
+.custom-navbar .navbar-brand {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: black;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: #00ff40;
+    /* Colore arancio per hover */
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: #ecf0f1;
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-color: #ecf0f1;
+}
+
+/* Personalizzazione dello stato attivo */
+.custom-navbar .navbar-nav .nav-link.active {
+    color: #00ff40;
+    font-weight: 600;
+}
+
+#testo_footer {
+    text-align: center;
+}
+
+.logo {
+    width: 70%;
+    min-width: 50px; /* Impone una larghezza minima di 5px */
+}
+
+#logoCarrello {
+    width: 12%;
+    min-width: 50px; /* Impone una larghezza minima di 5px */
+}
+
+.titolo {
+    text-align: center;
+}
+
+.cart-item-image {
+    width: 10%;
+    min-width: 75px;
+    height: auto; /* Mantiene le proporzioni corrette */
+    object-fit: cover; /* Fa sì che l'immagine si adatti al contenitore senza distorsioni */
+    border-radius: 8px; /* Rende gli angoli dell'immagine arrotondati */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ccc; /* Aggiunge una linea divisoria tra gli articoli */
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px; /* Rende gli angoli degli elementi del carrello arrotondati */
+}
+
+.cart-item-details {
+    flex: 1;
+    padding-left: 15px;
+}
+
+.cart-item-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-item-price {
+    font-size: 16px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+}
+
+.cart-item-quantity input {
+    width: 40px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cart-item-quantity button {
+    background-color: #ff6347; /* Colore del pulsante */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cart-item-quantity button:hover {
+    background-color: #e55347; /* Colore quando il mouse è sopra */
+}
+
+.cart-item-remove {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cart-item-remove:hover {
+    background-color: #c82333;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.cart-summary .total-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+/* Modifica del bottone checkout */
+#checkout-button {
+    width: auto; /* Non occuperà più tutta la larghezza */
+    padding: 10px 20px; /* Aggiungiamo un po' di padding per renderlo più piccolo */
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px 0; /* Distanza tra il bottone e altri elementi */
+}
+
+#checkout-button:hover {
+    background-color: #218838;
+}
+
+/* Applicazione stile simile al bottone "Svuota carrello" */
+#empty-cart-button {
+    width: auto; /* Non occuperà tutta la larghezza */
+    padding: 10px 20px; /* Stesso padding del checkout */
+    background-color: #ff6347; /* Colore simile al pulsante di rimozione */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px 0; /* Distanza tra il bottone e altri elementi */
+}
+
+#empty-cart-button:hover {
+    background-color: #e55347;
+}

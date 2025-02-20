@@ -28,7 +28,7 @@
         {
             "titolo": "È molto semplice",
             "autore": "Massimiliano Allegri",
-            "prezzo": "21€",
+            "prezzo": "24€",
             "immagine": "../../altre_pagine/immaginiLibri/LibriSportivi/èmoltosemplice.jpeg"
         },
         {
@@ -40,13 +40,13 @@
         {
             "titolo" : "Can't hurt me",
             "autore" : "David Goggins",
-            "prezzo": "21€",
+            "prezzo": "23€",
             "immagine":"../../altre_pagine/immaginiLibri/LibriSportivi/canthurtme.jpeg"
         },
         {
             "titolo" : "CR7 LA BIOGRAFIA",
             "autore" : "Guillem Balague",
-            "prezzo": "21€",
+            "prezzo": "30€",
             "immagine":"../../altre_pagine/immaginiLibri/LibriSportivi/cr7biografia.jpeg"
         }
 
