@@ -50,136 +50,128 @@ document.addEventListener('DOMContentLoaded', function() {
     // Recupera il carrello dal localStorage (o un array vuoto se non c'è nulla)
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Funzione per raggruppare gli articoli uguali (per nome o ID)
-    function groupItems(cart) {
-        const groupedItems = [];
+  // Funzione per raggruppare gli articoli, tenendo conto delle versioni
+function groupItems(cart) {
+    const groupedItems = [];
 
-        cart.forEach(book => {
-            const existingBook = groupedItems.find(item => item.name === book.name);
-            if (existingBook) {
-                existingBook.quantity++;
-            } else {
-                groupedItems.push({...book, quantity: 1});
+    cart.forEach(book => {
+        const existingBook = groupedItems.find(item => item.name === book.name && item.versione === book.versione);
+        if (existingBook) {
+            existingBook.quantity++;
+        } else {
+            groupedItems.push({...book, quantity: 1});
+        }
+    });
+
+    return groupedItems;
+}
+
+/// Funzione per aggiornare la visualizzazione del carrello
+function updateCart() {
+    cartContainer.innerHTML = '';
+
+    // Se il carrello è vuoto, mostra un messaggio
+    if (cart.length === 0) {
+        cartContainer.innerHTML = '<p>Il carrello è vuoto.</p>';
+        totalPriceElement.textContent = '€0.00';
+        return;
+    }
+
+    let totalPrice = 0;
+    const groupedCart = groupItems(cart);
+
+    // Variabili per il libro gratuito
+    let cheapestBook = null;
+    let cheapestBookPrice = Infinity;
+    let freeBookFound = false;
+
+    // Se ci sono almeno 3 articoli, il più economico è gratis (solo 1 copia)
+    if (groupedCart.length >= 3) {
+        groupedCart.forEach((book) => {
+            let bookPrice = parseFloat(book.price.replace('€', '').trim()); // Rimuoviamo simbolo euro per il calcolo
+            if (bookPrice < cheapestBookPrice) {
+                cheapestBookPrice = bookPrice;
+                cheapestBook = book;
             }
         });
 
-        return groupedItems;
+        if (cheapestBook && cheapestBook.quantity > 0) {
+            cheapestBook.price = '0.00'; // La prima copia è gratuita
+            cheapestBook.quantity--;
+            freeBookFound = true;
+        }
     }
 
-    // Funzione per aggiornare la visualizzazione del carrello
-    function updateCart() {
-        // Pulisce il contenitore del carrello
-        cartContainer.innerHTML = '';
-    
-        // Se il carrello è vuoto, mostra un messaggio
-        if (cart.length === 0) {
-            cartContainer.innerHTML = '<p>Il carrello è vuoto.</p>';
-            totalPriceElement.textContent = '€0.00';
-            return;
-        }
-    
-        let totalPrice = 0;
-    
-        // Raggruppa gli articoli simili
-        const groupedCart = groupItems(cart);
-    
-        // Variabili per il libro gratuito
-        let cheapestBook = null;
-        let cheapestBookPrice = Infinity;
-        let freeBookFound = false;
-    
-        // Se ci sono almeno 3 articoli, il più economico è gratis (solo 1 copia)
-        if (groupedCart.length >= 3) {
-            // Trova l'articolo più economico
-            groupedCart.forEach((book) => {
-                let bookPrice = parseFloat(book.price.replace('€', '').trim()); // Rimuoviamo simbolo euro per il calcolo
-                if (bookPrice < cheapestBookPrice) {
-                    cheapestBookPrice = bookPrice;
-                    cheapestBook = book;
-                }
-            });
-    
-            // Applica il prezzo gratuito solo alla prima copia
-            if (cheapestBook && cheapestBook.quantity > 0) {
-                cheapestBook.price = '0.00'; // La prima copia è gratuita
-                cheapestBook.quantity--; // Riduci la quantità di una copia
-                freeBookFound = true; // Segna che il libro gratuito è stato trovato
-            }
-        }
-    
-        // Mostra il libro gratuito in una riga separata (se presente)
-        if (freeBookFound && cheapestBook) {
-            const freeBookDiv = document.createElement('div');
-            freeBookDiv.classList.add('cart-item', 'free-item');
-            freeBookDiv.innerHTML = `
+    // Mostra il libro gratuito in una riga separata
+    if (freeBookFound && cheapestBook) {
+        const freeBookDiv = document.createElement('div');
+        freeBookDiv.classList.add('cart-item', 'free-item');
+        freeBookDiv.innerHTML = ` 
+            <div class="cart-item-details">
+                <img src="${cheapestBook.image}" alt="${cheapestBook.name}" class="cart-item-image"/>
+                <p><strong>Nome:</strong> ${cheapestBook.name}</p>
+                <p><strong>Prezzo:</strong> €0.00 (Gratuito)</p>
+                <p><strong>Quantità:</strong> 1</p>
+                <p><strong>Versione:</strong> ${cheapestBook.versione}</p>
+            </div>
+            <div class="cart-item-quantity">
+                <button class="remove-from-cart" data-name="${cheapestBook.name}" data-version="${cheapestBook.versione}">Rimuovi</button>
+            </div>
+        `;
+        cartContainer.appendChild(freeBookDiv);
+    }
+
+    // Mostra gli altri articoli nel carrello
+    groupedCart.forEach((book) => {
+        if (book.price !== '0.00' || (book.price === '0.00' && book.quantity > 0)) {
+            const bookDiv = document.createElement('div');
+            bookDiv.classList.add('cart-item');
+
+            const displayPrice = book.price === '0.00' ? cheapestBookPrice : parseFloat(book.price.replace('€', '').trim());
+
+            bookDiv.innerHTML = `
                 <div class="cart-item-details">
-                    <img src="${cheapestBook.image}" alt="${cheapestBook.name}" class="cart-item-image"/>
-                    <p><strong>Nome:</strong> ${cheapestBook.name}</p>
-                    <p><strong>Prezzo:</strong> €0.00 (Gratuito)</p>
-                    <p><strong>Quantità:</strong> 1</p> <!-- Sempre 1, perché è solo una copia gratuita -->
+                    <img src="${book.image}" alt="${book.name}" class="cart-item-image"/>
+                    <p><strong>Nome:</strong> ${book.name}</p>
+                    <p><strong>Prezzo:</strong> €${displayPrice.toFixed(2)}</p>
+                    <p><strong>Quantità:</strong> ${book.quantity}</p>
+                    <p><strong>Versione:</strong> ${book.versione}</p>
                 </div>
                 <div class="cart-item-quantity">
-                    <button class="remove-from-cart" data-name="${cheapestBook.name}">Rimuovi</button>
+                    <button class="remove-from-cart" data-name="${book.name}" data-version="${book.versione}">Rimuovi</button>
                 </div>
             `;
-            cartContainer.appendChild(freeBookDiv);
+
+            cartContainer.appendChild(bookDiv);
+
+            // Somma il prezzo dell'articolo * quantità
+            totalPrice += displayPrice * book.quantity;
         }
-    
-        // Crea una lista degli articoli nel carrello raggruppati per nome, escludendo il libro gratuito
-        groupedCart.forEach((book, index) => {
-            // Aggiungi solo i libri che non sono gratuiti o quelli che sono copie successive
-            if (book.price !== '0.00' || (book.price === '0.00' && book.quantity > 0)) {
-                const bookDiv = document.createElement('div');
-                bookDiv.classList.add('cart-item');
-    
-                // Per le copie successive del libro gratuito, mostriamo il prezzo originale
-                const displayPrice = book.price === '0.00' ? cheapestBookPrice : parseFloat(book.price.replace('€', '').trim());
-    
-                bookDiv.innerHTML = `
-                    <div class="cart-item-details">
-                        <img src="${book.image}" alt="${book.name}" class="cart-item-image"/>
-                        <p><strong>Nome:</strong> ${book.name}</p>
-                        <p><strong>Prezzo:</strong> €${displayPrice.toFixed(2)}</p> <!-- Mostriamo solo il valore numerico con il simbolo € -->
-                        <p><strong>Quantità:</strong> ${book.quantity}</p>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <button class="remove-from-cart" data-index="${index}">Rimuovi</button>
-                    </div>
-                `;
-    
-                cartContainer.appendChild(bookDiv);
-    
-                // Somma il prezzo dell'articolo * quantità
-                totalPrice += displayPrice * book.quantity;
-            }
+    });
+
+    totalPriceElement.textContent = `€${totalPrice.toFixed(2)}`;
+
+    // Gestione della rimozione di articoli
+    const removeButtons = document.querySelectorAll('.remove-from-cart');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const bookName = this.dataset.name;
+            const bookVersion = this.dataset.version;
+
+            // Rimuovi il libro dal carrello in base al nome e versione
+            cart = cart.filter(book => !(book.name === bookName && book.versione === bookVersion));
+
+            // Aggiorna il localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Aggiorna la visualizzazione del carrello
+            updateCart();
         });
-    
-        // Mostra il totale del carrello
-        totalPriceElement.textContent = `€${totalPrice.toFixed(2)}`;
-    
-        // Gestisce la rimozione di un singolo articolo usando l'indice o nome
-        const removeButtons = document.querySelectorAll('.remove-from-cart');
-        removeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const bookName = this.dataset.name || ''; // Per rimuovere il libro gratuito
-                const index = this.dataset.index; // Per rimuovere gli altri libri
-    
-                if (bookName) {
-                    // Rimuovi il libro gratuito dal carrello
-                    cart = cart.filter(book => book.name !== bookName);
-                } else if (index !== undefined) {
-                    // Rimuovi un singolo libro con un determinato indice
-                    cart.splice(index, 1);
-                }
-    
-                // Aggiorna il localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
-    
-                // Aggiorna la visualizzazione del carrello
-                updateCart();
-            });
-        });
-    }
+    });
+}
+
+
+
 
     // Aggiorna la visualizzazione del carrello all'avvio
     updateCart();

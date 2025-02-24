@@ -1,0 +1,128 @@
+/* Personalizzazione della navbar */
+.custom-navbar {
+    background-color: #fc766d;
+}
+
+.custom-navbar .navbar-brand {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: black;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: #00ff40;
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: #ecf0f1;
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-color: #ecf0f1;
+}
+
+/* Stato attivo */
+.custom-navbar .navbar-nav .nav-link.active {
+    color: #00ff40;
+    font-weight: 600;
+}
+
+/* Logo */
+.logo {
+    width: 70%;
+    min-width: 50px;
+}
+
+#logoCarrello {
+    width: 12%;
+    min-width: 50px;
+}
+
+/* Titoli */
+.titolo {
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Stile dettagli libro */
+#book-details {
+    display: block;
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-item {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.book-image {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Pulsante Indietro */
+#back-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#back-button:hover {
+    background-color: #fc766d;
+    color: white;
+}
+
+/* Pulsante aggiungi al carrello */
+.add-to-cart {
+    background-color: #00ff40;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #008f30;
+}
+/* Pulsanti versione */
+.btn-versione {
+    font-size: 16px;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 2px solid #fc766d;
+    background-color: white;
+    color: #fc766d;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-versione:hover {
+    background-color: #fc766d;
+    color: white;
+}
+
+/* Pulsante attivo */
+.btn-versione.active {
+    background-color: #fc766d;
+    color: white;
+}

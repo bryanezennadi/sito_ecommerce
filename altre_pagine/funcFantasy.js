@@ -49,9 +49,6 @@ function displayBooks(library) {
     }
 
     container.innerHTML = ''; // Pulisce il contenitore prima di riempirlo
-    let rowDiv = document.createElement("div");
-    rowDiv.classList.add("row"); // Crea una nuova riga
-    container.appendChild(rowDiv);
 
     let i = 0; // Contatore per i libri nella riga
 
@@ -74,20 +71,12 @@ function displayBooks(library) {
                 <button class="add-to-cart parametriLibro" data-id="${book.id}" data-name="${book.titolo}" data-price="${book.prezzo}" data-image="${book.immagine}">Aggiungi al carrello</button>
             </div> 
         `;
-
-        rowDiv.appendChild(bookDiv);
         i++;
         if (i == 1 || i == 3 || i == 4) {
             bookDiv.classList.add("rimpicciolimento2");
         }
 
-        // Dopo 4 libri, resettiamo e creiamo una nuova riga
-        if (i === 4) {
-            rowDiv = document.createElement("div");
-            rowDiv.classList.add("row");
-            container.appendChild(rowDiv);
-            i = 0; // Resetta il contatore
-        }
+        
         container.appendChild(bookDiv);
     });
 
@@ -99,7 +88,9 @@ function displayBooks(library) {
                 id: this.dataset.id,
                 name: this.dataset.name,
                 price: this.dataset.price,
-                image: this.dataset.image
+                image: this.dataset.image,
+                versione: 'Fisica'
+              
             };
 
             // Recupera il carrello esistente (o un array vuoto se non esiste)

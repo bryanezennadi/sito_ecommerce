@@ -56,6 +56,7 @@ function getQueryParam(param) {
 }
 
 // Funzione per mostrare i dettagli del libro
+// Funzione per mostrare i dettagli del libro
 function displayBookDetails(categories) {
   const bookTitle = getQueryParam('book'); // Ottieni il titolo dalla query string
 
@@ -73,9 +74,6 @@ function displayBookDetails(categories) {
     if (bookFound) break; // Se il libro è trovato, interrompi il ciclo
   }
 
-  // Log per debugging
-  console.log("Libro trovato:", bookFound);
-
   if (bookFound) {
     bookDetails.innerHTML = `
       <h1>${bookFound.titolo}</h1>
@@ -83,40 +81,65 @@ function displayBookDetails(categories) {
       <p><strong>Autore:</strong> ${bookFound.autore}</p>
       <p><strong>Prezzo:</strong> ${bookFound.prezzo}</p>
       <p><strong>Descrizione:</strong> ${bookFound.descrizione || 'Nessuna descrizione disponibile.'}</p>
+      <button id="btnFisico" class="btn btn-versione active">📖 Versione Fisica</button>
+      <button id="btnEbook" class="btn btn-versione">📱 eBook</button>
       <button class="add-to-cart">🛒 Aggiungi al carrello</button>
     `;
 
-    // Aggiungi evento per aggiungere al carrello
+    // Variabile per tracciare la versione selezionata (default: Fisica)
+    let versioneSelezionata = "Fisica";
+
+    // Seleziona i bottoni
+    const btnFisico = document.getElementById("btnFisico");
+    const btnEbook = document.getElementById("btnEbook");
+
+    if (btnFisico && btnEbook) {
+      btnFisico.addEventListener("click", function () {
+        btnFisico.classList.add("active");
+        btnEbook.classList.remove("active");
+        versioneSelezionata = "Fisica"; // Cambia la versione
+      });
+
+      btnEbook.addEventListener("click", function () {
+        btnEbook.classList.add("active");
+        btnFisico.classList.remove("active");
+        versioneSelezionata = "eBook"; // Cambia la versione
+      });
+    }
+
+    // Aggiungi evento per aggiungere al carrello con la versione scelta
     const addButton = document.querySelector('.add-to-cart');
     addButton.addEventListener('click', function () {
-      addToCart(bookFound);
+      addToCart(bookFound, versioneSelezionata);
     });
   } else {
     bookDetails.innerText = "Libro non trovato.";
   }
 }
 
-// Funzione per aggiungere libri al carrello e salvarli nel localStorage
-function addToCart(book) {
+// Funzione per aggiungere libri al carrello e salvarli nel localStorage con la versione scelta
+function addToCart(book, versione) {
   if (!book || !book.titolo) {
     console.error("Errore: Tentativo di aggiungere un libro nullo o incompleto al carrello.");
     return;
   }
 
-
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   
-  // Verifica che il libro abbia tutte le proprietà necessarie
   const newBook = {
     name: book.titolo || "Sconosciuto",
     autore: book.autore || "Autore non disponibile",
     price: book.prezzo || "Prezzo non disponibile",
-    image: book.image || "placeholder.jpg"
+    image: book.image || "placeholder.jpg",
+    versione: versione // Aggiunge la versione scelta
   };
+
   console.log("Prima di aggiungere:", cart);
-  console.log("Libro da aggiungere:", book);
+  console.log("Libro da aggiungere:", newBook);
+  
   cart.push(newBook);
   localStorage.setItem('cart', JSON.stringify(cart));
 
-  alert(`"${newBook.name}" è stato aggiunto al carrello!`);
+  alert(`"${newBook.name}" (${newBook.versione}) è stato aggiunto al carrello!`);
 }
+
