@@ -28,25 +28,25 @@
         {
             "titolo": "È molto semplice",
             "autore": "Massimiliano Allegri",
-            "prezzo": "24€",
+            "prezzo": "18.90€",
             "immagine": "../../altre_pagine/immaginiLibri/LibriSportivi/èmoltosemplice.jpeg"
         },
         {
             "titolo" : "The mamba mentality",
             "autore" : "Kobe Bryant",
-            "prezzo": "21€",
+            "prezzo": "23.75€",
             "immagine": "../../altre_pagine/immaginiLibri/LibriSportivi/mambamentality.jpeg"
         },
         {
             "titolo" : "Can't hurt me",
             "autore" : "David Goggins",
-            "prezzo": "23€",
+            "prezzo": "23.99€",
             "immagine":"../../altre_pagine/immaginiLibri/LibriSportivi/canthurtme.jpeg"
         },
         {
             "titolo" : "CR7 LA BIOGRAFIA",
             "autore" : "Guillem Balague",
-            "prezzo": "30€",
+            "prezzo": "4.75€",
             "immagine":"../../altre_pagine/immaginiLibri/LibriSportivi/cr7biografia.jpeg"
         }
 

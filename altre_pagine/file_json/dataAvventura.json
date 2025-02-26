@@ -28,25 +28,25 @@
         {
             "titolo": "Jurassic Park",
             "autore": "Michael Crichton",
-            "prezzo": "21€",
+            "prezzo": "14.90€",
             "immagine": "../../altre_pagine/immaginiLibri/libriAvventura/jurassicPark.jpeg"
         },
         {
             "titolo" : "Ventimila Leghe Sotto i Mari",
             "autore" : "Jules Verne",
-            "prezzo": "21€",
+            "prezzo": "13.99€",
             "immagine": "../../altre_pagine/immaginiLibri/libriAvventura/ventimilaLeghe.jpeg"
         },
         {
             "titolo" : "Il codice Da Vinci",
             "autore" : "Dan Brown",
-            "prezzo": "21€",
+            "prezzo": "6.20€",
             "immagine":"../../altre_pagine/immaginiLibri/libriAvventura/codiceDaVinci.jpeg"
         },
         {
             "titolo" : "Hunger Games",
             "autore" : "Suzanne Collins",
-            "prezzo": "21€",
+            "prezzo": "13.30€",
             "immagine":"../../altre_pagine/immaginiLibri/libriAvventura/HG.jpeg"
         }
 

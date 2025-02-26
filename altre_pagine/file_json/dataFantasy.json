@@ -28,25 +28,25 @@
         {
             "titolo": "MISTBORN",
             "autore": "Brandon Sanderson",
-            "prezzo": "21€",
+            "prezzo": "17.10€",
             "immagine": "../../altre_pagine/immaginiLibri/libriFantasy/MISTBORN.jpg"
         },
         {
             "titolo" : "GAME OF GODS",
             "autore" : "Jules Verne",
-            "prezzo": "21€",
+            "prezzo": "17€",
             "immagine": "../../altre_pagine/immaginiLibri/libriFantasy/gameofGods.jpeg"
         },
         {
             "titolo" : "A DARK SHADE OF MAGIC",
             "autore" : "V.E. SCHWAB",
-            "prezzo": "21€",
+            "prezzo": "12.26€",
             "immagine":"../../altre_pagine/immaginiLibri/libriFantasy/adsom.jpeg"
         },
         {
             "titolo" : "The Priory of the Orange Tree ",
             "autore" : "Samantha Shannon",
-            "prezzo": "21€",
+            "prezzo": "14.72€",
             "immagine":"../../altre_pagine/immaginiLibri/libriFantasy/TPOT.jpg"
         }
 

@@ -1,7 +1,7 @@
 async function fetchLibriViviData() {
     try {
         // Fetch del file JSON
-        const response = await fetch('../altre_pagine/dataSport.json');
+        const response = await fetch('../altre_pagine/file_json/dataSport.json');
         if (!response.ok) {
             throw new Error('Errore nel caricamento del file JSON: ' + response.statusText);
         }

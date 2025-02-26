@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async function () {
   try {
     // Carica il file JSON
-    const response = await fetch('../altre_pagine/specifiche.json');
+    const response = await fetch('../altre_pagine/file_json/specifiche.json');
     if (!response.ok) {
       throw new Error('Errore nel caricamento del file JSON: ' + response.statusText);
     }

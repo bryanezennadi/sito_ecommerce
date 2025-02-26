@@ -15,28 +15,28 @@
         {
           "titolo": "MISTBORN",
           "autore": "Brandon Sanderson",
-          "prezzo": "21€",
+          "prezzo": "17.10€",
           "image": "../../altre_pagine/immaginiLibri/libriFantasy/MISTBORN.jpg",
           "descrizione": "Mistborn: L'Ultimo Impero di Brandon Sanderson è un romanzo fantasy che segue Vin, una giovane ladruncola con poteri speciali, in un mondo oppresso dal tirannico Lord Reggente. Grazie all'Allomanzia, un'abilità che le permette di bruciare metalli per ottenere poteri sovrumani, si unisce a un gruppo di ribelli per rovesciare il regime. Il libro mescola azione, magia e colpi di scena in un'epica storia di rivoluzione e riscatto."
         },
         {
           "titolo": "GAME OF GODS",
           "autore": "Jules Verne",
-          "prezzo": "21€",
+          "prezzo": "17€",
           "image": "../../altre_pagine/immaginiLibri/libriFantasy/gameofGods.jpeg",
           "descrizione": "Game of Gods di Rachel J. Bonner è un romanzo fantasy che mescola mitologia, poteri divini e conflitti tra immortali. La storia segue la protagonista, un'umana che si ritrova coinvolta in un gioco pericoloso tra dei e mortali, dove le alleanze si formano e si rompono. Con il destino del mondo appeso a un filo, la protagonista dovrà fare scelte difficili per sopravvivere e scoprire il vero scopo del 'gioco'. Un'avventura ricca di mistero, magia e intrighi."
         },
         {
           "titolo": "A DARK SHADE OF MAGIC",
           "autore": "V.E. SCHWAB",
-          "prezzo": "21€",
+          "prezzo": "12.26€",
           "image": "../../altre_pagine/immaginiLibri/libriFantasy/adsom.jpeg",
           "descrizione": "A Dark Shade of Magic di V.E. Schwab è un romanzo fantasy che intreccia magia e mondi paralleli. La storia segue Kell, uno degli ultimi 'Antari', maghi in grado di viaggiare tra diverse versioni di Londra: una prospera e magica, una in rovina, una grigia e una senza magia. Kell, incaricato di trasportare messaggi tra i mondi, si trova coinvolto in un pericoloso intrigo quando un oggetto rubato minaccia di scatenare il caos. Con l'aiuto di Lila Bard, una ladra audace e ambiziosa, dovrà affrontare minacce mortali e scoprire segreti che potrebbero cambiare il destino di tutti i mondi."
         },
         {
           "titolo": "The Priory of the Orange Tree",
           "autore": "Samantha Shannon",
-          "prezzo": "21€",
+          "prezzo": "14.72€",
           "image": "../../altre_pagine/immaginiLibri/libriFantasy/TPOT.jpg",
           "descrizione": "The Priory of the Orange Tree di Samantha Shannon è un epico romanzo fantasy che esplora un mondo diviso tra draghi, maghi e regni in guerra. La storia ruota attorno a un antico conflitto tra draghi e umani, con una forte presenza di femminilità e potere. La protagonista, Tané, è una giovane guerriera che sogna di diventare una cavaliere dei draghi, mentre altre figure, come la maga Neve, devono affrontare forze oscure. Con una narrazione che abbraccia diversi punti di vista, il romanzo esplora tematiche di lealtà, sacrificio e la lotta per la sopravvivenza in un mondo minacciato dalla distruzione."
         }
@@ -48,28 +48,28 @@
         {
           "titolo": "Jurassic Park",
           "autore": "Michael Crichton",
-          "prezzo": "21€",
+          "prezzo": "14.90€",
           "image": "../../altre_pagine/immaginiLibri/libriAvventura/jurassicPark.jpeg",
           "descrizione": "Jurassic Park di Michael Crichton è un thriller fantascientifico che esplora le conseguenze di un esperimento genetico andato storto. L'autore crea un parco a tema con dinosauri clonati, ma le cose sfuggono di mano quando le creature preistoriche riescono a liberarsi, mettendo in pericolo la vita di tutti i visitatori. Il romanzo esplora il tema della scienza e dei suoi limiti, e le implicazioni etiche e morali dei progressi tecnologici."
         },
         {
           "titolo": "Ventimila Leghe Sotto i Mari",
           "autore": "Jules Verne",
-          "prezzo": "21€",
+          "prezzo": "13.99€",
           "image": "../../altre_pagine/immaginiLibri/libriAvventura/ventimilaLeghe.jpeg",
           "descrizione": "20.000 leghe sotto i mari è un romanzo di avventura che racconta le straordinarie peripezie del professor Pierre Aronnax, del suo servitore Conseil e del marinaio Ned Land, che vengono catturati dal misterioso capitano Nemo a bordo del sottomarino Nautilus. Durante il loro viaggio attraverso gli oceani, i tre protagonisti esplorano le meraviglie e i pericoli del mondo marino, affrontando creature fantastiche e scoprendo segreti nascosti negli abissi. Il romanzo unisce avventura, scienza e un'anticipazione visionaria della tecnologia moderna, ed è considerato uno dei capolavori di Verne, esplorando temi come la libertà, l'isolamento e la relazione tra l'uomo e la natura."
         },
         {
           "titolo": "Il codice Da Vinci",
           "autore": "Dan Brown",
-          "prezzo": "21€",
+          "prezzo": "6.20€",
           "image": "../../altre_pagine/immaginiLibri/libriAvventura/codiceDaVinci.jpeg",
           "descrizione": "Il codice Da Vinci di Dan Brown è un thriller che ruota attorno al mistero di un omicidio al Museo del Louvre e le implicazioni religiose e storiche che ne derivano. Robert Langdon, un professore di simbolismo religioso, viene coinvolto in un'indagine che lo porterà a decifrare antichi codici, segreti nascosti e enigmi che potrebbero cambiare il corso della storia. Un romanzo avvincente che mescola storia, religione e arte in un intricato puzzle."
         },
         {
           "titolo": "Hunger Games",
           "autore": "Suzanne Collins",
-          "prezzo": "21€",
+          "prezzo": "13.30€",
           "image": "../../altre_pagine/immaginiLibri/libriAvventura/HG.jpeg",
           "descrizione": "Hunger Games di Suzanne Collins è un romanzo distopico che racconta la lotta per la sopravvivenza in un futuro post-apocalittico, dove ogni anno i giovani di Panem sono costretti a partecipare a un gioco mortale in diretta televisiva. La protagonista, Katniss Everdeen, diventa un simbolo di speranza e ribellione mentre combatte per la sua vita e per quella della sua famiglia. Un'avventura ricca di suspense che esplora temi di giustizia, potere e sacrificio."
         }
@@ -81,28 +81,28 @@
         {
           "titolo": "È molto semplice",
           "autore": "Massimiliano Allegri",
-          "prezzo": "21€",
+          "prezzo": "18.90€",
           "image": "../../altre_pagine/immaginiLibri/LibriSportivi/èmoltosemplice.jpeg",
           "descrizione": "È molto semplice di Massimiliano Allegri è un libro che raccoglie le riflessioni e i principi alla base della carriera dell'allenatore di calcio. In questo volume, Allegri condivide la sua esperienza professionale, le sue strategie e il suo approccio alla gestione di una squadra di calcio. Un'analisi del lavoro mentale e psicologico che sta dietro ai successi sportivi, ma anche un invito alla semplicità e alla dedizione."
         },
         {
           "titolo": "The mamba mentality",
           "autore": "Kobe Bryant",
-          "prezzo": "21€",
+          "prezzo": "23.75€",
           "image": "../../altre_pagine/immaginiLibri/LibriSportivi/mambamentality.jpeg",
           "descrizione": "The Mamba Mentality di Kobe Bryant è un libro che esplora la filosofia di vita e l'approccio mentale che ha guidato la carriera leggendaria del campione di basket. Bryant condivide la sua dedizione al perfezionamento delle sue abilità, la disciplina e la forza mentale necessaria per affrontare le sfide sia dentro che fuori dal campo. Un'opera che ispira chiunque desideri raggiungere il massimo delle proprie capacità."
         },
         {
           "titolo": "Can't hurt me",
           "autore": "David Goggins",
-          "prezzo": "21€",
+          "prezzo": "23.99€",
           "image": "../../altre_pagine/immaginiLibri/LibriSportivi/canthurtme.jpeg",
           "descrizione": "Can't Hurt Me di David Goggins è un libro che racconta la straordinaria vita dell'ex Navy SEAL, ultra-maratoneta e motivatore. Goggins condivide le sue esperienze, affrontando traumi, difficoltà fisiche e mentali, e superando ostacoli apparentemente insormontabili. Un'opera che spinge a sfidare i propri limiti e a non arrendersi mai, a prescindere dalle avversità."
         },
         {
           "titolo": "CR7 LA BIOGRAFIA",
           "autore": "Guillem Balague",
-          "prezzo": "21€",
+          "prezzo": "4.75€",
           "image": "../../altre_pagine/immaginiLibri/LibriSportivi/cr7biografia.jpeg",
           "descrizione": "CR7 La Biografia di Guillem Balague è un racconto approfondito della vita e della carriera di Cristiano Ronaldo, una delle leggende viventi del calcio. La biografia esplora le sue origini, il suo percorso verso il successo e le sue sfide personali e professionali. Un ritratto del campione portoghese, che ha conquistato il mondo con la sua incredibile determinazione e talento."
         }
